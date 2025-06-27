@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -13,19 +15,306 @@
   }
 }
 
+/* Navigation styles */
+.App-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.App-nav-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #495E57;
+  text-decoration: none;
+}
+
+.App-nav-logo span {
+  color: #F4CE14;
+}
+
+.App-nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.App-nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.App-nav-list li a:hover {
+  color: #F4CE14;
+}
+
+/* Underline animation */
+.App-nav-list li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #F4CE14;
+  transition: width 0.3s ease;
+}
+
+.App-nav-list li a:hover::after {
+  width: 100%;
+}
+
+/* Active link style */
+.App-nav-list li a.active {
+  color: #F4CE14;
+}
+
+.App-nav-list li a.active::after {
+  width: 100%;
+}
+
+/* Header styles */
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #495E57;
+  padding: 30px 80px;
+  color: white;
+  flex-wrap: nowrap;
+  position: relative;
+  overflow: visible;
+}
+
+.App-header-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.App-header-title {
+  font-size: 3rem;
+  color: #F4CE14;
+  margin: 0;
+  text-align: left;
+}
+
+.App-header-subtitle {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  color: #fff;
+  text-align: left;
+}
+
+.App-header-description {
+  font-size: 1rem;
+  margin-top: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.App-header-button {
+  background-color: #F4CE14;
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.App-header-button:hover {
+  background-color: #e5bf0d;
+}
+
+.App-header-image {
+  width: 400px;
+  height: 500px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.App-header-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Menu styles */
+.App-menu {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px 20px;
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.App-menu h2 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Markazi Text', serif;
+  font-weight: 600;
+}
+
+.App-menu-specials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.App-menu-item {
+  background-color: #ededee;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  padding: 0;
+}
+
+.App-menu-item-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  flex-shrink: 0;
+}
+
+.App-menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.App-menu-item-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.App-menu-item-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1.5rem;
+}
+
+.App-menu-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+
+.App-menu-item .price {
+  font-size: 1.2rem;
+  color: #ee9972;
+  font-weight: bold;
+}
+
+.App-menu-item p {
+  color: #495e57;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  flex-grow: 1;
+  font-family: 'Karla', sans-serif;
+}
+
+.delivery-btn {
+  background-color: #F4CE14;
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto;
+}
+.delivery-btn:hover {
+  background-color: #e6c213;
+  transform: scale(1.02);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: 2fr 1fr;
+}
+
+/*Footer styles */
+.App-footer {
+  background-color: #495E57;
+  color: #FFFFFF;
+  padding: 2rem 5%;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: auto;
+}
+
+.App-footer p {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-weight: 400;
+}
+
+.App-footer::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: #F4CE14;
+  margin: 0 auto 1rem auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .App-menu-specials {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .App-menu h2 {
+    font-size: 2rem;
+  }
+  .App-menu-item-image {
+    height: 180px;
+  }
+  .App-footer {
+    padding: 1.5rem;
+    font-size: 0.9rem;
+  }
 }
 
 @keyframes App-logo-spin {
