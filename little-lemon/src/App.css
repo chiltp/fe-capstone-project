@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  flex:1
 }
 
 .App-logo {
@@ -15,8 +16,8 @@
   }
 }
 
-/* Navigation styles */
-.App-nav {
+/* Header container */
+.App-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,17 +29,12 @@
   z-index: 100;
 }
 
-.App-nav-logo {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #495E57;
-  text-decoration: none;
+/* Navigation styles */
+.App-nav {
+  display: flex;
 }
 
-.App-nav-logo span {
-  color: #F4CE14;
-}
-
+/* Navigation list */
 .App-nav-list {
   list-style: none;
   display: flex;
@@ -47,6 +43,7 @@
   padding: 0;
 }
 
+/* Link styles */
 .App-nav-list li a {
   text-decoration: none;
   color: #333;
@@ -86,8 +83,9 @@
   width: 100%;
 }
 
-/* Header styles */
-.App-header {
+
+/* Hero Banner styles */
+.App-hero {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,34 +98,34 @@
   overflow: visible;
 }
 
-.App-header-content {
+.App-hero-content {
   flex: 1;
   max-width: 600px;
   text-align: left;
 }
 
-.App-header-title {
+.App-hero-title {
   font-size: 3rem;
   color: #F4CE14;
   margin: 0;
   text-align: left;
 }
 
-.App-header-subtitle {
+.App-hero-subtitle {
   font-size: 1.5rem;
   margin-top: 0.5rem;
   color: #fff;
   text-align: left;
 }
 
-.App-header-description {
+.App-hero-description {
   font-size: 1rem;
   margin-top: 1rem;
   line-height: 1.5;
   text-align: left;
 }
 
-.App-header-button {
+.App-hero-button {
   background-color: #F4CE14;
   color: #333;
   border: none;
@@ -138,11 +136,11 @@
   cursor: pointer;
 }
 
-.App-header-button:hover {
+.App-hero-button:hover {
   background-color: #e5bf0d;
 }
 
-.App-header-image {
+.App-hero-image {
   width: 400px;
   height: 500px;
   position: relative;
@@ -151,7 +149,7 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.App-header-image img {
+.App-hero-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -167,6 +165,15 @@
   background-color: #fff;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.App-menu-description {
+  font-size: 1.2rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  font-family: 'Karla', sans-serif;
 }
 
 .App-menu h2 {
@@ -281,7 +288,6 @@
   padding: 2rem 5%;
   text-align: center;
   font-size: 1rem;
-  margin-top: auto;
 }
 
 .App-footer p {
@@ -297,6 +303,142 @@
   height: 3px;
   background-color: #F4CE14;
   margin: 0 auto 1rem auto;
+}
+
+/* Booking Page Styles */
+.booking-page {
+  padding: 3rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.booking-page h1 {
+  font-family: 'Markazi Text', serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.booking-page p {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  font-family: 'Karla', sans-serif;
+}
+
+/* Booking Form Styles */
+.booking-form {
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Karla', sans-serif;
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495E57;
+  font-size: 1rem;
+}
+
+.booking-form input,
+.booking-form select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+  font-family: 'Karla', sans-serif;
+  background-color: #f9f9f9;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  outline: none;
+  border-color: #F4CE14;
+  box-shadow: 0 0 0 2px rgba(244, 206, 20, 0.2);
+  background-color: white;
+}
+
+.booking-form input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.booking-form button[type="submit"] {
+  background-color: #F4CE14;
+  color: #333;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 1rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.booking-form button[type="submit"]:hover {
+  background-color: #e6c213;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success Message */
+.booking-success {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8fff8;
+  border-radius: 16px;
+  border: 1px solid #d4edda;
+  color: #155724;
+  margin-top: 2rem;
+}
+
+.booking-success h2 {
+  color: #495E57;
+  font-family: 'Markazi Text', serif;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .booking-page {
+    padding: 2rem 5%;
+  }
+  
+  .booking-page h1 {
+    font-size: 2.2rem;
+  }
+  
+  .booking-form {
+    padding: 1.5rem;
+  }
 }
 
 /* Responsive styles */

@@ -26,7 +26,7 @@ class PainAuChocolat extends Pastry {
     }
 }
 function serveBreakfastPastry(){
-    const pastry = new PainAuChocolat("Pain au Chocolat", "Chocolate", 6)
+    const pastry = new PainAuChocolat("Pain au Chocolat", "Chocolate")
     pastry.warmUp();
     pastry.addChocolate();
     pastry.describe();
