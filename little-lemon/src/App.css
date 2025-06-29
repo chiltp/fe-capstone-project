@@ -1,5 +1,7 @@
 
-
+/* ================================
+  ====== App Container Styles ======
+  ================================ */
 .App {
   text-align: center;
   flex:1
@@ -10,13 +12,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-/* Header container */
+/* ===========================
+  ===== Header styles =====
+  =========================== */
 .App-header {
   display: flex;
   align-items: center;
@@ -29,12 +27,13 @@
   z-index: 100;
 }
 
-/* Navigation styles */
+/* ================================
+  ====== Navigation Styles ======
+  ================================ */
 .App-nav {
   display: flex;
 }
 
-/* Navigation list */
 .App-nav-list {
   list-style: none;
   display: flex;
@@ -43,7 +42,6 @@
   padding: 0;
 }
 
-/* Link styles */
 .App-nav-list li a {
   text-decoration: none;
   color: #333;
@@ -58,7 +56,6 @@
   color: #F4CE14;
 }
 
-/* Underline animation */
 .App-nav-list li a::after {
   content: '';
   position: absolute;
@@ -74,7 +71,6 @@
   width: 100%;
 }
 
-/* Active link style */
 .App-nav-list li a.active {
   color: #F4CE14;
 }
@@ -83,8 +79,9 @@
   width: 100%;
 }
 
-
-/* Hero Banner styles */
+/* ================================
+  ====== Hero Banner Styles ======
+  ================================ */
 .App-hero {
   display: flex;
   flex-direction: row;
@@ -156,7 +153,9 @@
   transition: transform 0.3s ease;
 }
 
-/* Menu styles */
+/* ================================
+  ====== Menu Card Styles ======
+  ================================ */
 .App-menu {
   display: flex;
   flex-direction: column;
@@ -167,6 +166,23 @@
   margin: 0 auto;
 }
 
+.App-menu h1,
+.App-menu h2 {
+  font-size: 2.5rem;
+  color: #333;
+  font-family: 'Markazi Text', serif;
+  font-weight: 600;
+}
+
+.App-menu h1 {
+  margin-bottom: 1rem;
+}
+
+.App-menu h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .App-menu-description {
   font-size: 1.2rem;
   color: #555;
@@ -174,15 +190,6 @@
   margin-bottom: 2rem;
   max-width: 800px;
   font-family: 'Karla', sans-serif;
-}
-
-.App-menu h2 {
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-family: 'Markazi Text', serif;
-  font-weight: 600;
 }
 
 .App-menu-specials {
@@ -196,13 +203,17 @@
 .App-menu-item {
   background-color: #ededee;
   border-radius: 16px;
-  padding: 1.5rem;
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
   padding: 0;
+  transition: all 0.3s ease;
+}
+
+.App-menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .App-menu-item-image-container {
@@ -214,15 +225,9 @@
   flex-shrink: 0;
 }
 
-.App-menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
 .App-menu-item-image {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
   object-fit: cover;
   border-radius: 0;
 }
@@ -270,42 +275,21 @@
   align-self: flex-start;
   margin-top: auto;
 }
+
 .delivery-btn:hover {
   background-color: #e6c213;
   transform: scale(1.02);
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: 2fr 1fr;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: 2fr 1fr;
 }
 
-/*Footer styles */
-.App-footer {
-  background-color: #495E57;
-  color: #FFFFFF;
-  padding: 2rem 5%;
-  text-align: center;
-  font-size: 1rem;
-}
-
-.App-footer p {
-  margin: 0;
-  padding: 0.5rem 0;
-  font-weight: 400;
-}
-
-.App-footer::before {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 3px;
-  background-color: #F4CE14;
-  margin: 0 auto 1rem auto;
-}
-
-/* Booking Page Styles */
+/* ================================
+  ====== BookingPage Styles ======
+  ================================ */
 .booking-page {
   padding: 3rem 5%;
   max-width: 1200px;
@@ -332,130 +316,338 @@
   font-family: 'Karla', sans-serif;
 }
 
-/* Booking Form Styles */
+/* ================================
+  ====== Booking Form Styles ======
+  ================================ */
+
 .booking-form {
-  background-color: white;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  max-width: 600px;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(73, 94, 87, 0.10);
+  max-width: 520px;
   margin: 0 auto;
   font-family: 'Karla', sans-serif;
+  border: 1.5px solid #ededee;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.booking-form:hover {
+  box-shadow: 0 10px 32px rgba(73, 94, 87, 0.13);
+  transform: translateY(-2px);
 }
 
 .booking-form label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #495E57;
-  font-size: 1rem;
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  font-family: 'Karla', sans-serif;
+  position: relative;
+}
+
+.booking-form label:after {
+  content: '*';
+  color: #ee9972;
+  margin-left: 4px;
+  position: absolute;
+  top: -2px;
 }
 
 .booking-form input,
 .booking-form select {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
+  padding: 1rem 1.2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
   font-family: 'Karla', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #fafafa;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.03);
+  box-sizing: border-box;
 }
 
 .booking-form input:focus,
 .booking-form select:focus {
   outline: none;
   border-color: #F4CE14;
-  box-shadow: 0 0 0 2px rgba(244, 206, 20, 0.2);
-  background-color: white;
+  box-shadow: 0 0 0 3px rgba(244, 206, 20, 0.13);
+  background-color: #fff;
 }
 
-.booking-form input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+.booking-form input[type="date"] {
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.1em;
+  padding-right: 2.5rem;
 }
 
-.booking-form input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  opacity: 1;
+.booking-form input[type="number"] {
+  max-width: none;
 }
 
 .booking-form button[type="submit"] {
   background-color: #F4CE14;
   color: #333;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 12px 24px;
   font-weight: bold;
+  font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-top: 1rem;
-  font-family: 'Karla', sans-serif;
+  transition: background-color 0.3s ease, transform 0.3s, box-shadow 0.3s;
 }
 
-.booking-form button[type="submit"]:hover {
+.booking-form button[type="submit"]:hover:not(:disabled) {
   background-color: #e6c213;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(244, 206, 20, 0.13);
+}
+
+.booking-form button[type="submit"]:active:not(:disabled) {
+  transform: translateY(1px);
 }
 
 .booking-form button[type="submit"]:disabled {
-  background-color: #ccc;
+  background: #e0e0e0;
+  color: #a0a0a0;
   cursor: not-allowed;
   transform: none;
   box-shadow: none;
 }
 
-/* Success Message */
-.booking-success {
-  text-align: center;
-  padding: 2rem;
-  background-color: #f8fff8;
-  border-radius: 16px;
-  border: 1px solid #d4edda;
-  color: #155724;
-  margin-top: 2rem;
+.booking-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
 }
 
-.booking-success h2 {
-  color: #495E57;
-  font-family: 'Markazi Text', serif;
+.booking-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
 }
 
-/* Responsive Adjustments */
+.booking-form .form-row .form-group {
+  flex: 1;
+}
+
+.booking-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='12' viewBox='0 0 20 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L10 10L19 1' stroke='%23495E57' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+/* Modern floating label effect */
+.booking-form .form-group.focused label {
+  transform: translateY(-8px);
+  font-size: 0.95rem;
+  color: #F4CE14;
+}
+
+/* Error states */
+.booking-form .form-error {
+  color: #ee9972;
+  font-size: 0.95rem;
+  margin-top: 0.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.booking-form .form-error:before {
+  content: '⚠';
+  font-size: 1.05rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .booking-page {
-    padding: 2rem 5%;
-  }
-  
-  .booking-page h1 {
-    font-size: 2.2rem;
-  }
-  
   .booking-form {
-    padding: 1.5rem;
+    padding: 1.3rem 0.7rem;
+    border-radius: 14px;
+    gap: 1rem;
+  }
+
+  .booking-form .form-row {
+    flex-direction: column;
+    display: flex;
+    gap: 0.7rem;
+  }
+
+  .booking-form button[type="submit"] {
+    padding: 0.85rem 1.1rem;
+    font-size: 1rem;
   }
 }
 
-/* Responsive styles */
+/* ================================
+  ====== Footer Styles ======
+  ================================ */
+.App-footer {
+  background-color: #495E57;
+  color: #FFFFFF;
+  padding: 2rem 5%;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.App-footer p {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-weight: 400;
+}
+
+.App-footer::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: #F4CE14;
+  margin: 0 auto 1rem auto;
+}
+
+/* ================================
+  ====== Confirmed Booking Styles ======
+  ================================ */
+.confirmed-booking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 3rem 5%;
+  background: #f9f9f9
+}
+
+.confirmation-message {
+  text-align: center;
+  max-width: 520px;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(73, 94, 87, 0.10);
+  border: 1.5px solid #ededee;
+  font-family: 'Karla', sans-serif;
+  animation: gentleBounce 0.8s ease;
+}
+
+.confirmation-message h1 {
+  color: #495E57;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
+  font-family: 'Markazi Text', serif;
+  font-weight: 600;
+}
+
+.confirmation-message h2 {
+  color: #F4CE14;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: 'Karla', sans-serif;
+}
+
+.confirmation-message p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.confirmation-message strong {
+  color: #495E57;
+}
+
+.back-to-home {
+  margin-top: 2rem;
+  background: #F4CE14;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(244, 206, 20, 0.10);
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.back-to-home a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  font-family: 'Karla', sans-serif;
+}
+
+.back-to-home:hover:not(:disabled) {
+  background: linear-gradient(90deg, #e6c213 80%, #ffe97a 100%);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 16px rgba(244, 206, 20, 0.13);
+}
+
+.back-to-home:active {
+  transform: translateY(1px);
+}
+
+/* Animations */
+@keyframes gentleBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .App-menu-specials {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .confirmed-booking {
+    padding: 2rem 5%;
+    min-height: 60vh;
   }
-  .App-menu h2 {
-    font-size: 2rem;
-  }
-  .App-menu-item-image {
-    height: 180px;
-  }
-  .App-footer {
+  
+  .confirmation-message {
     padding: 1.5rem;
-    font-size: 0.9rem;
+    margin: 0 1rem;
+  }
+  
+  .confirmation-message h1 {
+    font-size: 1.6rem;
+  }
+  
+  .confirmation-message h2 {
+    font-size: 1.1rem;
+  }
+  
+  .confirmation-message p {
+    font-size: 1rem;
+  }
+  
+  .back-to-home {
+    padding: 0.85rem 1.1rem;
+    font-size: 1rem;
   }
 }
 
@@ -465,5 +657,72 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ================================
+  ====== Contact Page Styles ======
+  ================================ */
+.contact-page {
+  padding: 3rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.page-title {
+  font-family: 'Markazi Text', serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+  text-align: left;
+}
+
+.contact-info, .business-hours {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.contact-info h2, .business-hours h2 {
+  color: #F4CE14;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.contact-cta {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+}
+
+.contact-cta a {
+  color: #ee9972;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-cta a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contact-methods {
+    grid-template-columns: 1fr;
   }
 }

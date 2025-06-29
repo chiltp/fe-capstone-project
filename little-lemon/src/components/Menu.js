@@ -1,4 +1,3 @@
-// Menu.js
 import greekSaladImage from '../assets/greek-salad.jpg';
 import bruschettaImage from '../assets/bruschetta.jpg';
 import lemonTartImage from '../assets/lemon-tart.jpg';
@@ -11,7 +10,7 @@ function Menu() {
   return (
     <main>
       <section className="App-menu">
-        <h2>Our Full Menu</h2>
+        <h1>Our Full Menu</h1>
         <p className='App-menu-description'>Explore our delicious menu offerings, crafted with the freshest ingredients and traditional recipes.</p>
         <div className="App-menu-specials">
 

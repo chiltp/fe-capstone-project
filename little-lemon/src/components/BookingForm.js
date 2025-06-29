@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function BookingForm({ availableTimes, onDateChange }) {
+function BookingForm({ availableTimes, onDateChange, submitForm }) {
   const [formData, setFormData] = useState({
     date: '',
     time: '',
@@ -9,6 +9,9 @@ function BookingForm({ availableTimes, onDateChange }) {
     occasion: 'Birthday'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const isFormValid = formData.date && formData.time && formData.guests >= 1 && formData.guests <= 10;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,45 +27,40 @@ function BookingForm({ availableTimes, onDateChange }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!isFormValid || isSubmitting) return;
+
     setIsSubmitting(true);
-    
+    setSubmitError(null);
+
     try {
-      console.log('Submitting booking data:', formData);
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      alert('Booking submitted successfully!');
-      // Reset form after submission
-      setFormData({
-        date: '',
-        time: '',
-        guests: 1,
-        occasion: 'Birthday'
-      });
+      const success = await submitForm(formData);
+      if (!success) {
+        setSubmitError('Failed to submit booking. Please try again.');
+      }
     } catch (error) {
-      console.error('Booking failed:', error);
-      alert('Booking failed. Please try again.');
+      setSubmitError('An unexpected error occurred. Please try again later.');
+      console.error('Booking submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const isFormValid = formData.date && formData.time && formData.guests >= 1 && formData.guests <= 10;
-
   return (
-    <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '400px', gap: '20px', margin: '0 auto' }}>
-      <label htmlFor="res-date">Choose date</label>
-      <input 
-        type="date" 
-        id="res-date" 
+    <form onSubmit={handleSubmit} className="booking-form">
+
+      <label htmlFor="res-date">Choose your preferred date</label>
+      <input
+        type="date"
+        id="res-date"
         name="date"
         value={formData.date}
         onChange={handleChange}
         required
         min={new Date().toISOString().split('T')[0]}
       />
-      
-      <label htmlFor="res-time">Choose time</label>
-      <select 
+
+      <label htmlFor="res-time">Select your preferred time</label>
+      <select
         id="res-time"
         name="time"
         value={formData.time}
@@ -70,7 +68,7 @@ function BookingForm({ availableTimes, onDateChange }) {
         required
         disabled={!formData.date}
       >
-        <option value="">Select a time</option>
+        <option value="">Available times will appear after selecting a date</option>
         {availableTimes.map(time => (
           <option key={time} value={time}>{time}</option>
         ))}
@@ -88,7 +86,7 @@ function BookingForm({ availableTimes, onDateChange }) {
         required
       />
 
-      <label htmlFor="occasion">Occasion</label>
+      <label htmlFor="occasion">What's the occasion?</label>
       <select
         id="occasion"
         name="occasion"
@@ -101,12 +99,17 @@ function BookingForm({ availableTimes, onDateChange }) {
         <option value="Other">Other</option>
       </select>
 
-      <button 
-        type="submit" 
+      {submitError && (
+        <p style={{ color: 'red', textAlign: 'center', margin: '0' }}>
+          {submitError}
+        </p>
+      )}
+
+      <button
+        type="submit"
         disabled={!isFormValid || isSubmitting}
-        style={{ marginTop: '20px' }}
       >
-        {isSubmitting ? 'Submitting...' : 'Make Reservation'}
+        {isSubmitting ? 'Submitting...' : 'Confirm Booking'}
       </button>
     </form>
   );
@@ -114,7 +117,8 @@ function BookingForm({ availableTimes, onDateChange }) {
 
 BookingForm.propTypes = {
   availableTimes: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onDateChange: PropTypes.func.isRequired
+  onDateChange: PropTypes.func.isRequired,
+  submitForm: PropTypes.func.isRequired
 };
 
 export default BookingForm;
